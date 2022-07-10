@@ -1,1 +1,1 @@
-# capstone_storefront
+# Welcome to Capstone Storefront project!
