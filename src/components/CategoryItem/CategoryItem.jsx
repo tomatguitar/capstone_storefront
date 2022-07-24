@@ -15,7 +15,7 @@ const CategoryItem = (props) => {
 };
 
 CategoryItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired
 };

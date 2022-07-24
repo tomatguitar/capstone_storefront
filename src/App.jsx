@@ -1,43 +1,27 @@
-import CategoryItem from './components/CategoryItem/CategoryItem';
-import classes from './App.module.scss';
+import { Routes, Route, Outlet, Navigate } from 'react-router-dom';
+import Home from './routes/Home/Home';
+import Navigation from './routes/Navigation/Navigation';
+
+const Shop = () => {
+  return (
+    <div>
+      <div>
+        <h1>I am the Shop page</h1>
+        <Outlet />
+      </div>
+    </div>
+  );
+};
 
 const App = () => {
-  const DUMMY_CATEGORIES = [
-    {
-      id: 1,
-      title: 'hats',
-      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png'
-    },
-    {
-      id: 2,
-      title: 'jackets',
-      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png'
-    },
-    {
-      id: 3,
-      title: 'sneakers',
-      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png'
-    },
-    {
-      id: 4,
-      title: 'womens',
-      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png'
-    },
-    {
-      id: 5,
-      title: 'mens',
-      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png'
-    }
-  ];
-
   return (
-    <div className={classes.categoriesContainer}>
-      {DUMMY_CATEGORIES.map((category) => {
-        return (
-          <CategoryItem id={category.id} title={category.title} imageUrl={category.imageUrl} />
-        );
-      })}
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Route>
+    </Routes>
   );
 };
 
