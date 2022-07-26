@@ -10,11 +10,11 @@ const Navigation = () => {
           <Logo className="logo" />
         </Link>
         <nav className={classes.navLinksContainer}>
-          <Link className={classes.navLink} to="/">
-            HOME
-          </Link>
           <Link className={classes.navLink} to="/shop">
             SHOP
+          </Link>
+          <Link className={classes.navLink} to="/auth">
+            SIGN IN
           </Link>
         </nav>
       </header>

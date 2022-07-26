@@ -30,6 +30,7 @@
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
       }
-    ]
+    ],
+    "react/button-has-type": 0
   }
 }
