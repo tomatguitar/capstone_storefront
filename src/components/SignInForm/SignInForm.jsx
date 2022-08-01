@@ -77,7 +77,7 @@ const SignInForm = () => {
       <Input
         label="Email"
         type="email"
-        id="email"
+        id="emailISignIn"
         name="email"
         value={email}
         required
@@ -87,7 +87,7 @@ const SignInForm = () => {
       <Input
         label="Password"
         type="password"
-        id="password"
+        id="passwordSignIn"
         name="password"
         value={password}
         required
