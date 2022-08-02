@@ -1,4 +1,4 @@
-import { createContext, useCallback, useState, useEffect } from 'react';
+import { createContext, useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import PRODUCTS from '../shopData.json';
@@ -11,8 +11,6 @@ export const ProductsContext = createContext({
 export const ProductsProvider = ({ children }) => {
   const [shopProducts, setShopProducts] = useState(PRODUCTS);
   const value = useCallback({ shopProducts, setShopProducts });
-
-  useEffect(() => {}, []);
 
   return <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>;
 };
