@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../contexts/cartContext';
 import Button from '../Button/Button';
 import CartItem from '../CartItem/CartItem';
@@ -6,18 +7,25 @@ import CartItem from '../CartItem/CartItem';
 import classes from './CartDropdown.module.scss';
 
 const CartDropdown = () => {
-  const { cartItems } = useContext(CartContext);
-  const isEmptyCart = cartItems.length === 0;
+  const navigate = useNavigate();
+  const { cartItems, cartItemsQuantity } = useContext(CartContext);
+  const isEmptyCart = cartItemsQuantity === 0;
+
+  const clickHandler = () => {
+    navigate('checkout');
+  };
+
   return (
     <div className={classes.cartDropdownContainer}>
-      <div className={classes.cartItems}>
-        {!isEmptyCart &&
-          cartItems.map((item) => {
-            return <CartItem cartItem={item} />;
+      {!isEmptyCart && (
+        <div className={classes.cartItems}>
+          {cartItems.map((item) => {
+            return <CartItem key={item.id} cartItem={item} />;
           })}
-      </div>
-      {isEmptyCart && <p>Your cart is empty</p>}
-      <Button>GO TO CHECKOUT</Button>
+        </div>
+      )}
+      {isEmptyCart && <p className={classes.empty}>Your cart is empty</p>}
+      {!isEmptyCart && <Button onClick={clickHandler}>GO TO CHECKOUT</Button>}
     </div>
   );
 };

@@ -4,11 +4,9 @@ import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
 import classes from './CartIcon.module.scss';
 
 const CartIcon = () => {
-  const { isCartOpen, setIsCartOpen, cartItems } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartItemsQuantity } = useContext(CartContext);
 
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
-
-  const itemsCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <div
@@ -18,7 +16,7 @@ const CartIcon = () => {
       onClick={toggleIsCartOpen}
       onKeyDown={() => {}}>
       <ShoppingIcon className={classes.shoppingIcon} />
-      <span className={classes.itemCount}>{itemsCount}</span>
+      <span className={classes.itemCount}>{cartItemsQuantity}</span>
     </div>
   );
 };
