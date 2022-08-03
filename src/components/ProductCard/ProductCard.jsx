@@ -1,4 +1,4 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cartContext';
 import Button from '../Button/Button';
@@ -27,11 +27,11 @@ const ProductCard = ({ product }) => {
 };
 
 ProductCard.propTypes = {
-  product: propTypes.shape({
-    id: propTypes.number,
-    name: propTypes.string,
-    imageUrl: propTypes.string,
-    price: propTypes.number
+  product: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    imageUrl: PropTypes.string,
+    price: PropTypes.number
   }).isRequired
 };
 
