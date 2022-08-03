@@ -1,5 +1,3 @@
-// import PropTypes from 'prop-types';
-// import classes from './Directory.module.scss';
 import Directory from '../../components/Directory/Directory';
 
 const Home = () => {
